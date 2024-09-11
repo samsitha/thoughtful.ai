@@ -1,0 +1,16 @@
+function solve(width: number, height: number, length: number, mass: number): string {
+  const volume = width * height * length;
+  const isHeavy = width >= 150 || height >= 150 || length >= 150;
+  
+  if (mass < 20 && (isHeavy || volume >= 1000000)) {
+    return 'SPECIAL';
+  } else if (mass >= 20) {
+    if (volume >= 1000000 || isHeavy) {
+      return 'REJECTED';
+    }
+    
+    return 'SPECIAL';
+  }
+  
+  return 'STANDARD';
+}
